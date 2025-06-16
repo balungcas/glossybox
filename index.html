@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Glassmorphism Boxes</title>
+  <title>Glassmorphism Box</title>
   <style>
     * {
       box-sizing: border-box;
@@ -14,39 +14,42 @@
       padding: 0;
     }
     body {
-      min-height: 100vh;
-      min-width: 100vw;
-      height: 100vh;
-      width: 100vw;
-      background: transparent;
+      /* Added a background to see the glass effect */
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
       display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
+      justify-content: center; /* Centered for better viewing */
+      align-items: center; /* Centered for better viewing */
       font-family: Arial, sans-serif;
     }
-    .glass-container {
-      width: 100vw;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-    }
     .glass-box {
-      background: linear-gradient(-82deg, #FFFFFF 60%, #FFFFFF 0%);
-      opacity: 0.40;
+      /* --- Main Changes Here --- */
+
+      /* 1. Set a semi-transparent background color */
+      background: rgba(255, 255, 255, 0.15);
+
+      /* 2. Remove the 'opacity' property */
+
+      /* 3. The backdrop-filter creates the frosted glass blur */
       backdrop-filter: blur(22px);
       -webkit-backdrop-filter: blur(22px);
-      border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle white border */
-      width: 100vw;
-      height: 100vh;
-      transition: border-radius 0.2s;
+
+      /* 4. A subtle border enhances the glass-like edge */
+      border-radius: 16px; /* Added border-radius for a softer look */
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Optional: adds depth */
+
+      /* --- Sizing and Content --- */
+      width: 50vw;  /* Adjusted for better viewing */
+      height: 50vh; /* Adjusted for better viewing */
+      padding: 2em;
+      color: white; /* Added text color for any content */
     }
   </style>
 </head>
 <body>
-  <div class="glass-container">
-    <div class="glass-box"></div>
+  <div class="glass-box">
+    <h2>This is a Glass Box</h2>
+    <p>The content inside remains sharp and readable.</p>
   </div>
 </body>
 </html>
