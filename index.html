@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glossy Background</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; /* Prevents scrollbars */
+    }
+
+    .glossy-surface {
+      width: 100%;
+      height: 100%;
+      /* This gradient creates the soft, directional light effect.
+        It transitions from a very light gray to a slightly darker one.
+      */
+      background: linear-gradient(135deg, hsl(0, 0%, 98%) 0%, hsl(0, 0%, 90%) 100%);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* This pseudo-element creates the subtle noise/grain texture.
+      It sits on top of the gradient.
+    */
+    .glossy-surface::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* A repeating, transparent noise pattern. You can create one or find one online.
+        Using a data URL for a simple noise pattern makes it self-contained.
+      */
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><filter id="a"><feTurbulence type="fractalNoise" baseFrequency=".6" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23a)"/></svg>');
+      opacity: 0.025; /* Keep this very low for a subtle effect */
+      pointer-events: none; /* Allows interaction with elements behind it */
+    }
+  </style>
+</head>
+<body>
+  <div class="glossy-surface">
+    </div>
+</body>
+</html>
