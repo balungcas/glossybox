@@ -14,7 +14,15 @@
       padding: 0;
     }
     body {
-
+       min-height: 100vh;
+      min-width: 100vw;
+      height: 100vh;
+      width: 100vw;
+      background: transparent;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      font-family: Arial, sans-serif;
     }
     .glass-box {
       /* --- Main Changes Here --- */
@@ -32,12 +40,6 @@
       border-radius: 0px; /* Added border-radius for a softer look */
       border: 1px solid rgba(255, 255, 255, 0.3);
       box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Optional: adds depth */
-
-      /* --- Sizing and Content --- */
-      width: 100vw;  /* Adjusted for better viewing */
-      height: 100vh; /* Adjusted for better viewing */
-      padding: 2em;
-      color: white; /* Added text color for any content */
     }
   </style>
 </head>
