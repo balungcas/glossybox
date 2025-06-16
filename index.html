@@ -2,50 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Glossy Background</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Glassmorphism Boxes</title>
   <style>
-    body, html {
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden; /* Prevents scrollbars */
     }
-
-    .glossy-surface {
-      width: 100%;
-      height: 100%;
-  
-      
-      background: linear-gradient(135deg, hsl(0, 0%, 98%) 0%, hsl(0, 0%, 90%) 40%);
-      position: relative;
+    body {
+      min-height: 100vh;
+      min-width: 100vw;
+      height: 100vh;
+      width: 100vw;
+      background: transparent;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-start;
+      align-items: flex-start;
+      font-family: Arial, sans-serif;
     }
-
-    /* This pseudo-element creates the subtle noise/grain texture.
-      It sits on top of the gradient.
-    */
-    .glossy-surface::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      /* A repeating, transparent noise pattern. You can create one or find one online.
-        Using a data URL for a simple noise pattern makes it self-contained.
-      */
-      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><filter id="a"><feTurbulence type="fractalNoise" baseFrequency=".6" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23a)"/></svg>');
-      opacity: 0.025; /* Keep this very low for a subtle effect */
-      pointer-events: none; /* Allows interaction with elements behind it */
+    .glass-container {
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .glass-box {
+      background: linear-gradient(120deg, #FFFFFF 60%, #C4C4C4 10%);
+      opacity: 0.85;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle white border */
+      width: 100vw;
+      height: 100vh;
+      transition: border-radius 0.2s;
     }
   </style>
 </head>
 <body>
-  <div class="glossy-surface">
-    </div>
+  <div class="glass-container">
+    <div class="glass-box"></div>
+  </div>
 </body>
 </html>
