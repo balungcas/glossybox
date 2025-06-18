@@ -3,69 +3,68 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UI Panel Component</title>
+    <title>Tinted Glassmorphism Component</title>
     <style>
         * {
             box-sizing: border-box;
         }
 
-        /* --- Basic Setup for Webframe Integration --- */
         html, body {
             height: 100%;
             width: 100%;
             margin: 0;
             padding: 0;
-            /* Ensures the background of your webframe is invisible */
-            background: transparent; 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: transparent;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        .glass-box {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 28px;
             
-            /* These are helpful for placing the component during testing */
-            /* You can remove them if your UI handles positioning */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        /* --- The Main Panel Component --- */
-        .info-panel {
-            width: 80%;
-            height: 40%;
-            position: relative; /* Essential for positioning the child tag */
+            /* --- The Core Effect --- */
+            /* 1. The Background Blur: This remains the heart of the effect. */
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
 
-            /* 1. The Translucent Color: Darkens the background without blurring. */
-            background-color: rgba(65, 75, 70, 0.75);
+            /* 2. The Translucent Fill: Changed to a darker, more noticeable tint. */
+            background-color: rgba(0, 0, 0, 0.3); /* <-- THE KEY CHANGE IS HERE */
+            
+            /* 3. The Border: The light border now creates a sharp contrast. */
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            
+            /* 4. The Shadow: Gives the element depth. */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 
-            /* 2. The Top Glow: Creates the 'blur' effect from your image. */
-            box-shadow: 0px -15px 25px rgba(45, 164, 159, 0.6);
+            overflow: hidden;
         }
 
-        /* --- The Child Tag Component --- */
-        .distance-tag {
+        /* --- Subtle Gloss Effect --- */
+        /* This pseudo-element's white gradient now pops against the dark background. */
+        .glass-box::before {
+            content: '';
             position: absolute;
-            top: -12px; /* Sits on the top edge of its parent, .info-panel */
-            left: 50%;
-            transform: translateX(-50%); /* Horizontally centers the tag */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             
-            background-color: #2DA49F;
-            color: white;
-            padding: 6px 18px;
-            border-radius: 14px;
-            font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 0.5px;
+            /* A simple diagonal gradient to simulate a light sheen. */
+            background: linear-gradient(
+                120deg, 
+                rgba(255, 255, 255, 0.3) 0%, 
+                rgba(255, 255, 255, 0) 100%
+            );
             
-            box-shadow: 0px -4px 10px rgba(45, 164, 159, 0.8);
+            pointer-events: none;
         }
 
     </style>
 </head>
 <body>
-    
-    <div class="info-panel">
-        <div class="distance-tag">
-            10 KM
+    <div class="glass-box">
         </div>
-        </div>
-
 </body>
 </html>
