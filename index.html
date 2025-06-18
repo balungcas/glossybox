@@ -3,68 +3,30 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tinted Glassmorphism Component</title>
+    <title>TEST - Tinted Glassmorphism</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         html, body {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            background: transparent;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            height: 100%; width: 100%; margin: 0; padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-
         .glass-box {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            border-radius: 0px;
-            
-            /* --- The Core Effect --- */
-            /* 1. The Background Blur: This remains the heart of the effect. */
+            width: 80%; height: 60%; position: relative; border-radius: 28px;
             backdrop-filter: blur(16px) saturate(180%);
             -webkit-backdrop-filter: blur(16px) saturate(180%);
-
-            /* 2. The Translucent Fill: Changed to a darker, more noticeable tint. */
-            background-color: rgba(0, 0, 0, 0.3); /* <-- THE KEY CHANGE IS HERE */
-            
-            /* 3. The Border: The light border now creates a sharp contrast. */
+            background-color: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.25);
-            
-            /* 4. The Shadow: Gives the element depth. */
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-
             overflow: hidden;
         }
-
-        /* --- Subtle Gloss Effect --- */
-        /* This pseudo-element's white gradient now pops against the dark background. */
         .glass-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            
-            /* A simple diagonal gradient to simulate a light sheen. */
-            background: linear-gradient(
-                120deg, 
-                rgba(255, 255, 255, 0.3) 0%, 
-                rgba(255, 255, 255, 0) 100%
-            );
-            
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
             pointer-events: none;
         }
-
     </style>
 </head>
 <body>
-    <div class="glass-box">
-        </div>
+    <div class="glass-box"></div>
 </body>
 </html>
